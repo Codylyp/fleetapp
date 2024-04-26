@@ -47,6 +47,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/fonts/**",
                         "/img/**",
                         "/js/**").permitAll()
+                .antMatchers("/security/user/Edit/**").hasAuthority("ADMIN")
                 .antMatchers("/users/addNew").permitAll()
                 .anyRequest().authenticated()
                 .and()
